@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grad_project/models/workspace_model.dart';
+import 'package:grad_project/modules/login_screen.dart';
+import 'package:grad_project/modules/sign_up.dart';
 import 'package:grad_project/shared/components/components.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -355,7 +357,9 @@ class _HomeScreenState extends State<HomeScreen> {
               defaultButton(
                 function: ()
                 {
-                  print('create account');
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context)=> SignUp())
+                );
                 },
                 text: 'Create Account',
               ),
@@ -389,7 +393,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   defaultButton(
                     function: ()
                     {
-                      print('login');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context)=> LoginScreen())
+                      );
                     },
                     text: 'Login',
                   ),

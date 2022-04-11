@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad_project/modules/edit_personal_info_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -99,7 +100,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=> EditPersonalInfo())
+                          );
+                        },
                         icon: Icon(Icons.arrow_forward_ios_outlined),
                       ),
                     ],
