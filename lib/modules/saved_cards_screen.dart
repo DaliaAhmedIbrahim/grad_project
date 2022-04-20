@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:grad_project/modules/add_card_screen.dart';
+import 'package:grad_project/modules/card_screen.dart';
+
 
 class SavedCardScreen extends StatefulWidget {
   const SavedCardScreen({Key? key}) : super(key: key);
@@ -71,7 +72,7 @@ class _SavedCardScreen extends State<SavedCardScreen> {
 
                 RaisedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AddCardScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> CreditCardPage()));
                   },
                   color: Colors.blue,
                   padding: EdgeInsets.symmetric(horizontal: 50),
