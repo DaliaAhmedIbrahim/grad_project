@@ -15,7 +15,7 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
     HomeScreen(),
-    BookingLayoutScreen(),
+    //BookingLayoutScreen(),
     ProfileScreen(),
   ];
 
@@ -44,12 +44,12 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
             ),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.date_range_outlined,
-            ),
-            label: 'Booking',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(
+          //     Icons.date_range_outlined,
+          //   ),
+          //   label: 'Booking',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,

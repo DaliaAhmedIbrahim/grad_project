@@ -21,139 +21,138 @@ class _UpcomingBookingScreenState extends State<UpcomingBookingScreen> {
           child: Column(
             children: [
               Container(
-                child:
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Name: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20.0, top: 20.0, bottom: 10.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '20th',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                                Text(
+                                  'March,Wednesday',
+                                  style: TextStyle(
+                                    fontSize: 15.0,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Text(
-                          '${name}',
-                          style: TextStyle(
-                            fontSize: 20.0,
+                          // SizedBox(
+                          //   width: 139.0,
+                          // ),
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.lightBlue.withOpacity(1),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                              ),
+                              height: 42,
+                              width: 110.0,
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "20LE",
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    color:Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height:5.0,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Date: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Text(
-                          '12/3/2022',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-
-
-                      ],
-                    ),
-                    SizedBox(
-                      height:5.0,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'From : ',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          '12:00',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Text(
-                          'To : ',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          '2:00',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height:5.0,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Payment: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
-                          ),
-                        ),
-                        Text(
-                          'Cash',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height:5.0,
-                    ),
-                    Text(
-                      'Room\'s Details: ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
+                        ],
                       ),
-                    ),
-                    SizedBox(
-                      height:5.0,
-                    ),
-                    Text(
-                      'Room 3 for 20 persons with projector, air conditionar, white board,chairs, 2 table',
-                      style: TextStyle(
-                        fontSize: 20.0,
+                      SizedBox(
+                        height: 20.0,
                       ),
-                      maxLines: 3,
-                    ),
-
-
-                  ],
+                      Row(
+                        children: [
+                          Text(
+                            'Room3 - IdeaSpace',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            '01:00 pm to 05:00 pm',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Maadi, Cairo',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: MaterialButton(
+                              onPressed: (){},
+                              child: Text(
+                                'View Booking',
+                                style: TextStyle(
+                                  fontSize:20.0,
+                                  color: Colors.lightBlue,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: MaterialButton(
+                              onPressed: (){},
+                              child: Text(
+                                'Cancle Booking',
+                                style: TextStyle(
+                                  fontSize:20.0,
+                                  color: Colors.lightBlue,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 25.0,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.grey[200],
                 ),
-
               ),
             ],
           ),

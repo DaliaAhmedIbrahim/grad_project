@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grad_project/layout/onboarding_layout_screen.dart';
+import 'package:grad_project/modules/booking_confirmed_screen.dart';
 import 'package:grad_project/modules/payment_screen.dart';
 
 void main() {

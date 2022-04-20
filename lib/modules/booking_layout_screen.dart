@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad_project/modules/cancelled_booking_screen.dart';
 import 'package:grad_project/modules/past_booking_screen.dart';
 import 'package:grad_project/modules/upcoming_booking_screen.dart';
 class BookingLayoutScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _BookingLayoutScreenState extends State<BookingLayoutScreen>
   void initState() {
     super.initState();
 
-    tabController = TabController(vsync: this, initialIndex: 0, length: 2);
+    tabController = TabController(vsync: this, initialIndex: 0, length: 3);
   }
 
   @override
@@ -41,9 +42,10 @@ class _BookingLayoutScreenState extends State<BookingLayoutScreen>
           labelStyle: TextStyle(
             fontSize: 18.0,
           ),
-          tabs: [
-            Tab(text: 'Upcoming Bookings',),
-            Tab(text: 'Past Bookings',),
+          tabs:<Widget> [
+            Tab(text: 'In progress'),
+            Tab(text: 'Past'),
+            Tab(text: 'Cancelled'),
           ],
         ),
       ),
@@ -53,6 +55,7 @@ class _BookingLayoutScreenState extends State<BookingLayoutScreen>
         children:<Widget> [
           UpcomingBookingScreen(),
           PastBookings(),
+          CancelledBookingScreen(),
         ],
       ),
     );
