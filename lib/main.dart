@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget{
       ),
 
       debugShowCheckedModeBanner: false,
-      home: PaymentScreen(),
+      home: OnBoardingPage(),
     );
   }
 }
