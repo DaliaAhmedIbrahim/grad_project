@@ -2,8 +2,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grad_project/layout/onboarding_layout_screen.dart';
+import 'package:grad_project/modules/booking_layout_screen.dart';
+import 'package:grad_project/modules/payment2_screen.dart';
+import 'package:grad_project/modules/payment_choose_screen.dart';
+
+import 'package:grad_project/modules/card_screen.dart';
+import 'package:grad_project/modules/edit_personal_info_screen.dart';
+import 'package:grad_project/modules/home_screen.dart';
+import 'package:grad_project/modules/payment2_screen.dart';
+import 'package:grad_project/modules/payment_choose_screen.dart';
+
 import 'package:grad_project/modules/booking_confirmed_screen.dart';
+import 'package:grad_project/modules/payment_confirm_screen.dart';
 import 'package:grad_project/modules/payment_screen.dart';
+import 'package:grad_project/modules/profile_screen.dart';
+import 'package:grad_project/modules/saved_cards_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,9 +54,7 @@ class MyApp extends StatelessWidget{
       ),
 
       debugShowCheckedModeBanner: false,
-      home: OnBoardingPage(),
+      home: PaymentScreen(),
     );
-
   }
-
 }
