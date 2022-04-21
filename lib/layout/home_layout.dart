@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grad_project/modules/booking_layout_screen.dart';
+import 'package:grad_project/modules/favourites_screen.dart';
 import 'package:grad_project/modules/home_screen.dart';
 import 'package:grad_project/modules/profile_screen.dart';
 
@@ -16,6 +17,7 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
   List<Widget> screens = [
     HomeScreen(),
     //BookingLayoutScreen(),
+    FavouritesScreen(),
     ProfileScreen(),
   ];
 
@@ -50,6 +52,12 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
           //   ),
           //   label: 'Booking',
           // ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite_outlined,
+            ),
+            label: 'Favourites',
+          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
