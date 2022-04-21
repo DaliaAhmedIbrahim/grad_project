@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad_project/modules/booking_layout_screen.dart';
 import 'package:grad_project/modules/edit_personal_info_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -129,6 +130,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       IconButton(
                         onPressed: () {  },
+                        icon: Icon(Icons.arrow_forward_ios_outlined),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.date_range_outlined,
+                        size: 25.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Bookings',
+                          style: TextStyle(
+                            fontSize: 17.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=> BookingLayoutScreen())
+                          );
+                        },
                         icon: Icon(Icons.arrow_forward_ios_outlined),
                       ),
                     ],

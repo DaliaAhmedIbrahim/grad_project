@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_form.dart';
 import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:grad_project/modules/payment_confirm_screen.dart';
+import 'package:grad_project/shared/components/components.dart';
 
 
 class CreditCardPage extends StatefulWidget {
@@ -24,20 +26,12 @@ class _CreditCardPageState extends State<CreditCardPage> {
       //backgroundColor: Colors.teal[50],
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Flutter Credit Card View'),
+        title: Text('Please Enter Your Credit Card Details'),
       ),
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Column(
           children: [
-            // CreditCardWidget(
-            //   cardNumber: cardNumber,
-            //   expiryDate: expiryDate,
-            //   cardHolderName: cardHolderName,
-            //   cvvCode: cvvCode,
-            //   showBackView: isCvvFocused,
-            //   obscureCardNumber: true,
-            //   obscureCardCvv: true, onCreditCardWidgetChange: (CreditCardBrand ) {  },),
             Expanded(
                 child: SingleChildScrollView(
                   child: Column(
@@ -75,35 +69,35 @@ class _CreditCardPageState extends State<CreditCardPage> {
                       ),
 
 
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            primary: Color(0xff1b447b)
-
-                        ),
-                        child: Container(
-                          height: 20.0,
-                          margin: EdgeInsets.all(8.0),
-                          child: Text(
-                            'validate',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'halter',
-                              fontSize: 14,
-                              //package: 'flutter_credit_card',
-                            ),
-                          ),
-                        ),
+                      RaisedButton(
                         onPressed: (){
                           if(formKey.currentState!.validate()){
                             print('valid');
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context)=> PaymentConfirmationScreen())
+                            );
                           }
                           else{
                             print('inValid');
                           }
-                        },)
+                        },
+                        color: Colors.blue,
+                        padding: EdgeInsets.symmetric(horizontal: 50),
+                        elevation: 3,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Text(
+                          "validate",
+                          style: TextStyle(
+                              fontSize: 14,
+                              letterSpacing: 2.2,
+                              color: Colors.white),
+                        ),
+                      )
+
+
+
+
                     ],
                   ),
                 )),

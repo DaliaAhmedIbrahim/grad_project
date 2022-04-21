@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:grad_project/modules/card_screen.dart';
 import 'package:grad_project/modules/edit_personal_info_screen.dart';
+import 'package:grad_project/modules/payment_confirm_screen.dart';
 
-class Paymentscreen extends StatefulWidget {
-  const Paymentscreen({Key? key}) : super(key: key);
+class PaymentScreen extends StatefulWidget {
+  const PaymentScreen({Key? key}) : super(key: key);
 
   @override
-  State<Paymentscreen> createState() => _PaymentscreenState();
+  State<PaymentScreen> createState() => _PaymentScreenState();
 }
 
-class _PaymentscreenState extends State<Paymentscreen> {
+class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,7 +88,11 @@ class _PaymentscreenState extends State<Paymentscreen> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=> PaymentConfirmationScreen())
+                          );
+                        },
                         icon: Icon(Icons.arrow_forward_ios_outlined),
                       ),
                     ],
@@ -111,7 +116,11 @@ class _PaymentscreenState extends State<Paymentscreen> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=> PaymentConfirmationScreen())
+                          );
+                        },
                         icon: Icon(Icons.arrow_forward_ios_outlined),
                       ),
 
