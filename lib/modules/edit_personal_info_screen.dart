@@ -62,7 +62,7 @@ class _EditPersonalInfoState extends State<EditPersonalInfo> {
                   children: [
                     CircleAvatar(
                       radius: 60.0,
-                      backgroundImage: NetworkImage('https://ichef.bbci.co.uk/news/976/cpsprodpb/957C/production/_111686283_pic1.png'),
+                      backgroundImage: NetworkImage('https://scontent.fcai22-2.fna.fbcdn.net/v/t39.30808-6/277008078_1013007256279028_2166226649150906661_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGqjcAakDObEdaVjM9u4g2XbtAZGuKCkhRu0Bka4oKSFMPw_03YSanu3I7xXQaxo1qQSoj4mgC46_FJWlSUF0VW&_nc_ohc=t6b8XF_kY1QAX9KI33v&tn=miokRJjKnCygEYZj&_nc_ht=scontent.fcai22-2.fna&oh=00_AT9DjVHpCYpqCb_8a9luRgRmRmVn1ud6yyiNPONDUomOpA&oe=62685964'),
                     ),
                     Padding(
                       padding: const EdgeInsetsDirectional.only(

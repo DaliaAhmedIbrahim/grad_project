@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grad_project/layout/onboarding_layout_screen.dart';
 import 'package:grad_project/modules/booking_layout_screen.dart';
+import 'package:grad_project/modules/details_screen.dart';
+import 'package:grad_project/modules/login_screen.dart';
 import 'package:grad_project/modules/payment2_screen.dart';
 import 'package:grad_project/modules/payment_choose_screen.dart';
 
@@ -48,13 +50,12 @@ class MyApp extends StatelessWidget{
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-
         ),
 
       ),
 
       debugShowCheckedModeBanner: false,
-      home: PaymentScreen(),
+      home: details_screen(),
     );
   }
 }

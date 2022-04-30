@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:grad_project/models/workspace_model.dart';
+import 'package:grad_project/modules/details_screen.dart';
 import 'package:grad_project/modules/login_screen.dart';
 import 'package:grad_project/modules/sign_up.dart';
 import 'package:grad_project/shared/components/components.dart';
+import 'package:grad_project/shared/components/text.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,30 +16,39 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<String> names = <String>[
+    's',
+    's',
+    's',
+    's',
+    's',
+    's',
+    's',
+  ];
 
   var workSpaceController = TextEditingController();
 
-  List<WorkSpaceModel> workspaces = [
-    WorkSpaceModel(
-      id:1,
-      name:'Ideaspace Workspace',
-      image: 'assets/images/space2.jpg',
-      location: 'ElNozha,Cairo',
-    ),
-    WorkSpaceModel(
-      id:2,
-      name:'Elkhaima Workspace',
-      image: 'assets/images/space1.jpg',
-      location: 'Dokki,Giza',
-    ),
-    WorkSpaceModel(
-      id:3,
-      name:'Zeus Workspace',
-      image: 'assets/images/space3.jpg',
-      location: 'Dokki,Giza',
-    ),
-
-  ];
+  // List<WorkSpaceModel> workspaces = [
+  //   WorkSpaceModel(
+  //     id:1,
+  //     name:'Ideaspace Workspace',
+  //     image: 'assets/images/space2.jpg',
+  //     location: 'ElNozha,Cairo',
+  //   ),
+  //   WorkSpaceModel(
+  //     id:2,
+  //     name:'Elkhaima Workspace',
+  //     image: 'assets/images/space1.jpg',
+  //     location: 'Dokki,Giza',
+  //   ),
+  //   WorkSpaceModel(
+  //     id:3,
+  //     name:'Zeus Workspace',
+  //     image: 'assets/images/space3.jpg',
+  //     location: 'Dokki,Giza',
+  //   ),
+  //
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +102,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: Icon(
                           Icons.menu_sharp,
                           color: Colors.black,
-                        )),
+                        )
+                    ),
                   ),
                   SizedBox(
                     width: 270.0,
@@ -178,21 +192,114 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
+
               Container(
-                height: 260.0,
+                height: 240,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => buildWorkspaceItem(workspaces[index]),
-                  itemCount: 3,
-                  separatorBuilder: (context, index) => SizedBox(
-                    width: 20.0,
+                  itemCount: names.length,
+                  itemBuilder: (context,index){
+                    return GestureDetector(
+                      onTap: (){
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> ()));
+                      },
+                      child: Column(
+                        children:[
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(0),
+                              color: Colors.grey.shade100,
+                            ),
+                            //height: 170,
+                            width: MediaQuery.of(context).size.width * .6,
+                            child: Column(
+                              children:[
+                                Stack(
+                                  children:[
+                                    ClipRRect(
+                                      child: Image.asset('assets/images/space2.jpg',),
+                                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top:15.0),
+                                      child: Align(
+                                        alignment: Alignment.topRight,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.lightBlue.withOpacity(1),
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(10),
+                                              bottomLeft: Radius.circular(10),
+                                            ),
+                                          ),
+                                          height: 42,
+                                          width: 110.0,
+                                          child: Align(
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              "20LE/hour",
+                                              style: TextStyle(
+                                                fontSize: 20.0,
+                                                color:Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+
+
+                              ],
+                            ),
+
+
+
+                          ),
+
+                          SizedBox(height: 20,),
+
+                          CustomText(
+                            maxLine: 1,
+                            text: 'Elkhaima Workspace',
+                            fontSize: 20,
+                            fontweight: FontWeight.bold,
+                          ),
+
+                          SizedBox(height: 10,),
+
+                          CustomText(
+                            maxLine: 1,
+                            text: 'Dokki,Giza',
+                            alignment: Alignment.bottomLeft,
+                            color: Colors.grey,
+                            fontweight: FontWeight.bold,
+
+                          ),
+
+
+
+
+                          //SizedBox(height: 20,),
+                        ],
+                      ),
+                    );
+                  },
+
+                  separatorBuilder: (context, index) =>SizedBox(
+                    width: 20,
                   ),
+
+
                 ),
               ),
+
+
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
               Text(
                 'Popular Workspaces',
@@ -202,23 +309,113 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.grey[800],
                 ),
               ),
+
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
+
               Container(
-                height: 260.0,
+                height: 240,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => buildWorkspaceItem(workspaces[index]),
-                  itemCount: 3,
-                  separatorBuilder: (context, index) => SizedBox(
-                    width: 20.0,
+                  itemCount: names.length,
+                  itemBuilder: (context,index){
+                    return Column(
+                      children:[
+
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(0),
+                            color: Colors.grey.shade100,
+                          ),
+                          //height: 170,
+                          width: MediaQuery.of(context).size.width * .6,
+                          child: Column(
+                            children:[
+                              Stack(
+                                children:[
+                                  ClipRRect(
+                                   child: Image.asset('assets/images/space2.jpg',),
+                                   borderRadius: BorderRadius.all(Radius.circular(20)),
+                            ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top:15.0),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.lightBlue.withOpacity(1),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            bottomLeft: Radius.circular(10),
+                                          ),
+                                        ),
+                                        height: 42,
+                                        width: 110.0,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "20LE/hour",
+                                            style: TextStyle(
+                                              fontSize: 20.0,
+                                              color:Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                    ],
+                              ),
+
+
+                            ],
+                          ),
+
+
+
+                        ),
+
+                        SizedBox(height: 20,),
+
+                        CustomText(
+                          maxLine: 1,
+                          text: 'Elkhaima Workspace',
+                          fontSize: 20,
+                          fontweight: FontWeight.bold,
+                        ),
+
+                        SizedBox(height: 10,),
+
+                        CustomText(
+                          maxLine: 1,
+                          text: 'Dokki,Giza',
+                          alignment: Alignment.bottomLeft,
+                          color: Colors.grey,
+                          fontweight: FontWeight.bold,
+
+                        ),
+
+
+
+
+                        //SizedBox(height: 20,),
+                      ],
+                    );
+                  },
+
+                  separatorBuilder: (context, index) =>SizedBox(
+                    width: 20,
                   ),
+
+
                 ),
               ),
+
               SizedBox(
-                height:40.0,
+                height:20.0,
               ),
+
               Text(
                 'Newest Workspaces',
                 style: TextStyle(
@@ -228,21 +425,107 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
               Container(
-                height: 260.0,
+                height: 240,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => buildWorkspaceItem(workspaces[index]),
-                  itemCount: 3,
-                  separatorBuilder: (context, index) => SizedBox(
-                    width: 20.0,
+                  itemCount: names.length,
+                  itemBuilder: (context,index){
+                    return Column(
+                      children:[
+
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(0),
+                            color: Colors.grey.shade100,
+                          ),
+                          //height: 170,
+                          width: MediaQuery.of(context).size.width * .6,
+                          child: Column(
+                            children:[
+                              Stack(
+                                children:[
+                                  ClipRRect(
+                                    child: Image.asset('assets/images/space2.jpg',),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top:15.0),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.lightBlue.withOpacity(1),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            bottomLeft: Radius.circular(10),
+                                          ),
+                                        ),
+                                        height: 42,
+                                        width: 110.0,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "20LE/hour",
+                                            style: TextStyle(
+                                              fontSize: 20.0,
+                                              color:Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+
+
+                            ],
+                          ),
+
+
+
+                        ),
+
+                        SizedBox(height: 20,),
+
+                        CustomText(
+                          maxLine: 1,
+                          text: 'Elkhaima Workspace',
+                          fontSize: 20,
+                          fontweight: FontWeight.bold,
+                        ),
+
+                        SizedBox(height: 10,),
+
+                        CustomText(
+                          maxLine: 1,
+                          text: 'Dokki,Giza',
+                          alignment: Alignment.bottomLeft,
+                          color: Colors.grey,
+                          fontweight: FontWeight.bold,
+
+                        ),
+
+
+
+
+                        //SizedBox(height: 20,),
+                      ],
+                    );
+                  },
+
+                  separatorBuilder: (context, index) =>SizedBox(
+                    width: 20,
                   ),
+
+
                 ),
               ),
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
               Text(
                 'Latest Reviews',
