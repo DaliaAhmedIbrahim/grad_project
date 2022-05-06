@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:grad_project/modules/booking_layout_screen.dart';
+import 'package:grad_project/modules/events_screen.dart';
 import 'package:grad_project/modules/favourites_screen.dart';
 import 'package:grad_project/modules/home_screen.dart';
 import 'package:grad_project/modules/profile_screen.dart';
+import 'package:grad_project/modules/rooms_screen.dart';
 
 
 class HomeLayoutScreen extends StatefulWidget {
@@ -18,6 +20,8 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
     HomeScreen(),
     //BookingLayoutScreen(),
     FavouritesScreen(),
+    RoomsScreen(),
+    EventsScreen(),
     ProfileScreen(),
   ];
 
@@ -57,6 +61,18 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
               Icons.favorite_outlined,
             ),
             label: 'Favourites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.meeting_room,
+            ),
+            label: 'Rooms',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.event_available_outlined,
+            ),
+            label: 'Events',
           ),
           BottomNavigationBarItem(
             icon: Icon(

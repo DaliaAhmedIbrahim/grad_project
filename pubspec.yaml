@@ -43,6 +43,9 @@ dependencies:
   introduction_screen: ^1.0.9
   like_button: ^2.0.4
   flutter_credit_card:
+  smooth_star_rating: ^1.1.1
+  geocoding: ^2.0.4
+  geolocator: ^8.0.5
 
 dev_dependencies:
   flutter_test:
