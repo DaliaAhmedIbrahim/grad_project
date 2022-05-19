@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grad_project/layout/onboarding_layout_screen.dart';
 import 'package:grad_project/modules/booking_layout_screen.dart';
+import 'package:grad_project/modules/curr_location_screen.dart';
+
+import 'package:grad_project/modules/datetime_screen.dart';
 import 'package:grad_project/modules/details_screen.dart';
+import 'package:grad_project/modules/home_page_onboarging.dart';
 import 'package:grad_project/modules/login_screen.dart';
 import 'package:grad_project/modules/payment2_screen.dart';
 import 'package:grad_project/modules/payment_choose_screen.dart';
@@ -18,7 +22,10 @@ import 'package:grad_project/modules/booking_confirmed_screen.dart';
 import 'package:grad_project/modules/payment_confirm_screen.dart';
 import 'package:grad_project/modules/payment_screen.dart';
 import 'package:grad_project/modules/profile_screen.dart';
+import 'package:grad_project/modules/room_details_screen.dart';
 import 'package:grad_project/modules/saved_cards_screen.dart';
+
+import 'package:grad_project/timerange.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,11 +58,11 @@ class MyApp extends StatelessWidget{
             color: Colors.black,
           ),
         ),
-
       ),
 
       debugShowCheckedModeBanner: false,
       home: details_screen(),
+
     );
   }
 }

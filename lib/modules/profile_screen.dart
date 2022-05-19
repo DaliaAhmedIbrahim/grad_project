@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grad_project/modules/booking_layout_screen.dart';
 import 'package:grad_project/modules/edit_personal_info_screen.dart';
+import 'package:grad_project/modules/payment_choose_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 80.0,
+              height: 50.0,
             ),
             Container(
               child: Row(
@@ -129,7 +130,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=> PaymentScreen())
+                          );
+                        },
                         icon: Icon(Icons.arrow_forward_ios_outlined),
                       ),
                     ],

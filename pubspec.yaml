@@ -43,6 +43,14 @@ dependencies:
   flutter_credit_card: ^3.0.1
   get: ^3.22.2
   carousel_pro: ^0.0.13
+  like_button: ^2.0.4
+  time_range: ^1.0.2
+  flutter_datetime_picker: ^1.5.1
+  provider: ^6.0.0
+  riverpod: any
+
+
+
 
 
 
