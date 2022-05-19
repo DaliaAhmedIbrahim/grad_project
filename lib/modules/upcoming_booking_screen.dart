@@ -117,15 +117,13 @@ class _UpcomingBookingScreenState extends State<UpcomingBookingScreen> {
                       ),
                       Row(
                         children: [
-                          Expanded(
-                            child: MaterialButton(
-                              onPressed: (){},
-                              child: Text(
-                                'View Booking',
-                                style: TextStyle(
-                                  fontSize:20.0,
-                                  color: Colors.lightBlue,
-                                ),
+                          MaterialButton(
+                            onPressed: (){},
+                            child: Text(
+                              'View Booking',
+                              style: TextStyle(
+                                fontSize:20.0,
+                                color: Colors.lightBlue,
                               ),
                             ),
                           ),

@@ -146,10 +146,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
               Container(
-                height:60.0,
+                margin: EdgeInsets.all(10.0),
+                height:50.0,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10), //border corner radius
@@ -165,23 +166,37 @@ class _HomeScreenState extends State<HomeScreen> {
                     //you can set more BoxShadow() here
                   ],
                 ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    border: InputBorder.none,
-                    hintText:'Search WorkSpace',
-                    hintStyle: TextStyle(
-                      color: Colors.grey[300],
-                      fontSize: 20.0,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: " Search Flutter Topic",
+                          hintStyle: TextStyle(
+                            color: Colors.black.withAlpha(120),
+                          ),
+                          border: InputBorder.none,
+                        ),
+                        onChanged: (String keyword) {},
+                      ),
                     ),
-                    prefix: Icon(Icons.search,color: Colors.grey[300], size: 25.0,),
-                    suffix: Icon(Icons.location_on,color: Colors.lightBlue,size: 25.0,),
-                  ),
+                    Icon(
+                      Icons.search,
+                      color: Colors.black.withAlpha(120),
+                    ),
+                    IconButton(
+                      onPressed: () {  },
+                      icon: Icon(
+                        Icons.my_location,
+                        color: Colors.lightBlue,
+                      ),
+                    )
+                  ],
                 ),
 
               ),
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
               Text(
                 'Recommended Workspaces',
@@ -640,9 +655,9 @@ class _HomeScreenState extends State<HomeScreen> {
               defaultButton(
                 function: ()
                 {
-                Navigator.push(context,
-                MaterialPageRoute(builder: (context)=> SignUp())
-                );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=> SignUp())
+                  );
                 },
                 text: 'Create Account',
               ),
