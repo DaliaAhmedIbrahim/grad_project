@@ -3,7 +3,7 @@ import 'package:flutter_credit_card/credit_card_form.dart';
 import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:grad_project/modules/payment_confirm_screen.dart';
-import 'package:grad_project/shared/components/components.dart';
+
 
 
 class CreditCardPage extends StatefulWidget {

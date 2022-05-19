@@ -56,11 +56,7 @@ class _FavouritesScreenState extends State<FavouritesScreen> {
       location: 'Dokki,Giza',
       isFavourite: true,
     ),
-
   ];
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +82,7 @@ class _FavouritesScreenState extends State<FavouritesScreen> {
       ),
     );
   }
+
 
   Widget buildFavouriteItem(FavouritesModel favourite) =>  Container(
     width: double.infinity,
