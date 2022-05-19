@@ -46,6 +46,7 @@ dependencies:
   smooth_star_rating: ^1.1.1
   geocoding: ^2.0.4
   geolocator: ^8.0.5
+  location: ^4.3.0
 
 dev_dependencies:
   flutter_test:

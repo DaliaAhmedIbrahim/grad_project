@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:grad_project/models/workspace_model.dart';
 import 'package:grad_project/modules/login_screen.dart';
 import 'package:grad_project/modules/sign_up.dart';
+import 'package:grad_project/modules/user_location_screen.dart';
 import 'package:grad_project/shared/components/components.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,9 +15,43 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // Position? currentPosition;
+  // String? currentAddress;
+  // bool isLoading = false;
+
+  // Future<Position> getPosition() async{
+  //   LocationPermission permission;
+  //
+  //   permission = await Geolocator.checkPermission();
+  //   if (permission == LocationPermission.denied){
+  //     permission = await Geolocator.requestPermission();
+  //
+  //     if (permission == LocationPermission.deniedForever){
+  //       return Future.error('Location not available');
+  //     }
+  //   }else{
+  //     print('Location not available');
+  //   }
+  //   return await Geolocator.getCurrentPosition();
+  // }
+
+  // void getAddress(latitude, longitude)async{
+  //   try{
+  //     List<Placemark> placmark = await GeocodingPlatform.instance
+  //         .placemarkFromCoordinates(latitude, longitude);
+  //     Placemark place = placmark[0];
+  //
+  //     setState(() {
+  //       currentAddress =
+  //       '${place.locality}, ${place.street}, ${place.country}';
+  //     });
+  //   }catch(e){
+  //     print(e);
+  //   }
+  // }
+
 
   var workSpaceController = TextEditingController();
-
   List<WorkSpaceModel> workspaces = [
     WorkSpaceModel(
       id:1,
@@ -75,6 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // if(currentAddress!=null)
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -157,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: " Search Flutter Topic",
+                          hintText: " Search For Workspace",
                           hintStyle: TextStyle(
                             color: Colors.black.withAlpha(120),
                           ),
@@ -171,7 +209,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.black.withAlpha(120),
                     ),
                     IconButton(
-                      onPressed: () {  },
+                      onPressed: () async {
+                        // setState(() {
+                        //   isLoading = true;
+                        // });
+                        // currentPosition = await getPosition();
+                        // getAddress(currentPosition!.latitude,
+                        //     currentPosition!.longitude);
+                        // setState(() {
+                        //   isLoading = false;
+                        // });
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context)=> LocationScreen())
+                        );
+                      },
                       icon: Icon(
                         Icons.my_location,
                         color: Colors.lightBlue,
