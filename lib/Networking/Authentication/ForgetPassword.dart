@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 class ApiForget {
   static const String _BASE_URL = 'http://workspacelive.herokuapp.com/api';
 
-  static Future<http.Response> ForgetPassword(String userId, String username) async {
+  static Future<http.Response> ForgetPassword(String username) async {
 
     // business logic to send data to server
     final http.Response response = await http.post(Uri.parse('$_BASE_URL/forgot/password'),
@@ -13,7 +13,7 @@ class ApiForget {
           'Accept': 'application/json',
         },
         body: jsonEncode(<String, String>{
-          "userId": userId,
+        //  "userId": userId,
           "username": username,
         }));
     if (response.statusCode == 200) {
