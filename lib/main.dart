@@ -20,11 +20,14 @@ import 'package:grad_project/modules/booking_confirmed_screen.dart';
 import 'package:grad_project/modules/payment_confirm_screen.dart';
 import 'package:grad_project/modules/payment_screen.dart';
 import 'package:grad_project/modules/profile_screen.dart';
+import 'package:grad_project/modules/reset_password_screen.dart';
 import 'package:grad_project/modules/room_details_screen.dart';
 import 'package:grad_project/modules/rooms_screen.dart';
 import 'package:grad_project/modules/saved_cards_screen.dart';
 import 'package:grad_project/modules/user_location_screen.dart';
 import 'package:grad_project/timerange.dart';
+
+import 'modules/sign_up.dart';
 
 void main() {
   runApp(MyApp());
@@ -61,7 +64,7 @@ class MyApp extends StatelessWidget{
 
       debugShowCheckedModeBanner: false,
 
-      home: LocationScreen(),
+      home: ResetPassword(),
 
     );
   }

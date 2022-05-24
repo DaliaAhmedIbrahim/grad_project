@@ -153,6 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // if(currentAddress!=null)
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+
                 children: [
                   Container(
                     decoration: BoxDecoration(
