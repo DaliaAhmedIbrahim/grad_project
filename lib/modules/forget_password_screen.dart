@@ -26,7 +26,7 @@ class _ForgetPassword extends State<ForgetPassword> {
         child: Center(
           child: SingleChildScrollView(
             child: Form(
-              key: formKey,
+              key:formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

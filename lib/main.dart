@@ -5,6 +5,7 @@ import 'package:grad_project/layout/onboarding_layout_screen.dart';
 import 'package:grad_project/modules/booking_layout_screen.dart';
 import 'package:grad_project/modules/datetime_screen.dart';
 import 'package:grad_project/modules/details_screen.dart';
+import 'package:grad_project/modules/forget_password_screen.dart';
 import 'package:grad_project/modules/home_page_onboarging.dart';
 import 'package:grad_project/modules/login_screen.dart';
 import 'package:grad_project/modules/events_screen.dart';
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget{
 
       debugShowCheckedModeBanner: false,
 
-      home: ResetPassword(),
+      home: ForgetPassword(),
 
     );
   }
