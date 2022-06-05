@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grad_project/modules/login_screen.dart';
+import 'package:grad_project/modules/verfication_screen.dart';
 import 'package:grad_project/shared/components/components.dart';
 
 
@@ -125,7 +126,7 @@ class _SignUpState extends State<SignUp> {
                       function: ()
                       {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context)=> LoginScreen()));
+                            MaterialPageRoute(builder: (context)=> verificationScreen()));
 
                         if(formKey.currentState!.validate()){
                           print(nameController.text);

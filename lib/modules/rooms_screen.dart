@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grad_project/models/rooms_model.dart';
+import 'package:grad_project/modules/room_details_screen.dart';
 import 'package:grad_project/shared/components/components.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -94,90 +95,97 @@ class _RoomsScreenState extends State<RoomsScreen> {
     );
   }
 
-  Widget buildRoomItem(RoomsModel room) =>  Container(
-    width: double.infinity,
-    height: 220,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20.0),
-      image:DecorationImage(
-        image: AssetImage('${room.image}'),
-        fit: BoxFit.cover,
+  Widget buildRoomItem(RoomsModel room) =>  GestureDetector(
+    child: Container(
+      width: double.infinity,
+      height: 220,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        image:DecorationImage(
+          image: AssetImage('${room.image}'),
+          fit: BoxFit.cover,
+        ),
       ),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.only(top:15.0),
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white30.withOpacity(0.8),
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20),
+      child: Padding(
+        padding: const EdgeInsets.only(top:15.0),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white30.withOpacity(0.8),
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
+              ),
             ),
-          ),
-          height: 50,
-          width: double.infinity,
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(top:1.0, left: 10.0, right: 10.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "${room.name}",
+            height: 50,
+            width: double.infinity,
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(top:1.0, left: 10.0, right: 10.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "${room.name}",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              color:Colors.black,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "${room.people}",
                           style: TextStyle(
                             fontSize: 20.0,
                             color:Colors.black,
                           ),
                         ),
-                      ),
-                      Text(
-                        "${room.people}",
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color:Colors.black,
+                        Icon(
+                          Icons.people_alt_rounded,
                         ),
-                      ),
-                      Icon(
-                        Icons.people_alt_rounded,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SmoothStarRating(
-                          rating: room.rate,
-                          isReadOnly: true,
-                          size: 20.0,
-                          filledIconData: Icons.star,
-                          halfFilledIconData: Icons.star_half,
-                          defaultIconData: Icons.star_border,
-                          starCount: 5,
-                          allowHalfRating: true,
-                          spacing: 2.0,
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SmoothStarRating(
+                            rating: room.rate,
+                            isReadOnly: true,
+                            size: 20.0,
+                            filledIconData: Icons.star,
+                            halfFilledIconData: Icons.star_half,
+                            defaultIconData: Icons.star_border,
+                            starCount: 5,
+                            allowHalfRating: true,
+                            spacing: 2.0,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "${room.cost}",
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color:Colors.black,
+                        Text(
+                          "${room.cost}",
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color:Colors.black,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
         ),
       ),
     ),
+    onTap: (){
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context)=> roomDetails())
+      );
+    },
   );
 
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:grad_project/modules/login_screen.dart';
 
 import '../shared/components/components.dart';
@@ -20,6 +21,8 @@ class _ResetPassword extends State<ResetPassword> {
 
   bool isPassword = true;
   bool isConfirmPassword = true;
+  bool _onEditing = true;
+  late String _code;
 
   @override
   Widget build(BuildContext context)
@@ -45,7 +48,64 @@ class _ResetPassword extends State<ResetPassword> {
                   SizedBox(
                     height: 40.0,
                   ),
+                  Text(
+                    'Enter your verification code',
+                    style: TextStyle(
+                      fontSize: 23.0,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      VerificationCode(
+                          textStyle: TextStyle(
+                              fontSize: 40.0,
+                              color: Colors.lightBlue,
+                          ),
+                          keyboardType: TextInputType.number,
+                          underlineColor: Colors.amber, // If this is null it will use primaryColor: Colors.red from Theme
+                          length: 4,
+                          itemSize: 40.0,
+                          cursorColor: Colors.blue,
+                          onCompleted: (String value) {
+                            setState(() {
+                              _code = value;
+                              print(_code);
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context)=> LoginScreen()));
 
+                            });
+                          },
+                          onEditing: (bool value) {
+                            setState(() {
+                              _onEditing = value;
+                            });
+                            if (!_onEditing) FocusScope.of(context).unfocus();
+                          }
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: TextButton(
+                            onPressed: () {  },
+                            child: Text(
+                              'Resend code',
+                              style: TextStyle(
+                                  fontSize: 15.0,
+                                  // decoration: TextDecoration.underline,
+                                  color: Colors.lightBlue),
+                            ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
                   defaultFormField(
                       controller: passwordController,
                       label: 'New Password',
@@ -70,13 +130,9 @@ class _ResetPassword extends State<ResetPassword> {
                       }
 
                   ),
-
-
                   SizedBox(
                     height: 20.0,
                   ),
-
-
                   defaultFormField(
                       controller: confirmPasswordController,
                       label: 'Confirm Password',
@@ -101,15 +157,9 @@ class _ResetPassword extends State<ResetPassword> {
                       }
 
                   ),
-
-
-
-
                   SizedBox(
                     height: 30.0,
                   ),
-
-
                   defaultButton(
                     text: 'Submit',
                     function: (){

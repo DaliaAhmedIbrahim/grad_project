@@ -5,6 +5,7 @@ import 'package:grad_project/modules/favourites_screen.dart';
 import 'package:grad_project/modules/home_screen.dart';
 import 'package:grad_project/modules/profile_screen.dart';
 import 'package:grad_project/modules/rooms_screen.dart';
+import 'package:grad_project/modules/user_location_screen.dart';
 
 
 class HomeLayoutScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
     HomeScreen(),
     //BookingLayoutScreen(),
     FavouritesScreen(),
-    RoomsScreen(),
+    LocationScreen(),
     EventsScreen(),
     ProfileScreen(),
   ];
@@ -64,9 +65,9 @@ class _HomeLayoutScreenState extends State<HomeLayoutScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.meeting_room,
+              Icons.near_me,
             ),
-            label: 'Rooms',
+            label: 'Nearst',
           ),
           BottomNavigationBarItem(
             icon: Icon(

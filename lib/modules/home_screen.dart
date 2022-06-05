@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:get/get.dart';
 import 'package:grad_project/models/workspace_model.dart';
 import 'package:grad_project/modules/details_screen.dart';
 import 'package:grad_project/modules/login_screen.dart';
@@ -20,59 +17,24 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  // Position? currentPosition;
-  // String? currentAddress;
-  // bool isLoading = false;
-
-  // Future<Position> getPosition() async{
-  //   LocationPermission permission;
-  //
-  //   permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied){
-  //     permission = await Geolocator.requestPermission();
-  //
-  //     if (permission == LocationPermission.deniedForever){
-  //       return Future.error('Location not available');
-  //     }
-  //   }else{
-  //     print('Location not available');
-  //   }
-  //   return await Geolocator.getCurrentPosition();
-  // }
-
-  // void getAddress(latitude, longitude)async{
-  //   try{
-  //     List<Placemark> placmark = await GeocodingPlatform.instance
-  //         .placemarkFromCoordinates(latitude, longitude);
-  //     Placemark place = placmark[0];
-  //
-  //     setState(() {
-  //       currentAddress =
-  //       '${place.locality}, ${place.street}, ${place.country}';
-  //     });
-  //   }catch(e){
-  //     print(e);
-  //   }
-  // }
-
-
   var workSpaceController = TextEditingController();
+
   List<WorkSpaceModel> workspaces = [
     WorkSpaceModel(
       id:1,
-      name:'Ideaspace Workspace',
+      name:'Ideaspace',
       image: 'assets/images/space2.jpg',
       location: 'ElNozha,Cairo',
     ),
     WorkSpaceModel(
       id:2,
-      name:'Elkhaima Workspace',
+      name:'Elkhaima',
       image: 'assets/images/space1.jpg',
       location: 'Dokki,Giza',
     ),
     WorkSpaceModel(
       id:3,
-      name:'Zeus Workspace',
+      name:'Zeus',
       image: 'assets/images/space3.jpg',
       location: 'Dokki,Giza',
     ),
@@ -89,107 +51,94 @@ class _HomeScreenState extends State<HomeScreen> {
     's',
   ];
 
-  // List<WorkSpaceModel> workspaces = [
-  //   WorkSpaceModel(
-  //     id:1,
-  //     name:'Ideaspace Workspace',
-  //     image: 'assets/images/space2.jpg',
-  //     location: 'ElNozha,Cairo',
-  //   ),
-  //   WorkSpaceModel(
-  //     id:2,
-  //     name:'Elkhaima Workspace',
-  //     image: 'assets/images/space1.jpg',
-  //     location: 'Dokki,Giza',
-  //   ),
-  //   WorkSpaceModel(
-  //     id:3,
-  //     name:'Zeus Workspace',
-  //     image: 'assets/images/space3.jpg',
-  //     location: 'Dokki,Giza',
-  //   ),
-  //
-  // ];
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar:AppBar(
-      //   backgroundColor: Colors.white,
-      //   elevation: 1.0,
-      //   // leading: IconButton(
-      //   //     onPressed: (){},
-      //   //     iconSize: 35.0,
-      //   //     icon: Icon(
-      //   //       Icons.menu_outlined,
-      //   //       color: Colors.black,
-      //   //     )),
-      //   // title: Image(
-      //   //   image: AssetImage('assets/images/logo.png'),
-      //   //   fit: BoxFit.contain,
-      //   //   height: 75,
-      //   //   width: 300,
-      //   //
-      //   // ),
-      //   // actions: [
-      //   //   IconButton(
-      //   //     iconSize: 35.0,
-      //   //     padding: EdgeInsets.only(right: 10.0),
-      //   //     onPressed:(){},
-      //   //     icon: Icon(
-      //   //         Icons.account_circle_outlined,
-      //   //       color: Colors.black,
-      //   //     ),
-      //   //   ),
-      //   // ],
-      // ),
+      appBar: AppBar(
+        // The search area here
+          title: Container(
+            margin: EdgeInsets.all(10.0),
+            width: double.infinity,
+            // height:50.0,
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(10), //border corner radius
+              // boxShadow:[
+              //   BoxShadow(
+              //     color: Colors.grey.withOpacity(0.07), //color of shadow
+              //     spreadRadius: 12, //spread radius
+              //     blurRadius: 7, // blur radius
+              //     offset: Offset(0, 2), // changes position of shadow
+              //     //first parameter of offset is left-right
+              //     //second parameter is top to down
+              //   ),
+              //   //you can set more BoxShadow() here
+              // ],
+            ),
+            child: Center(
+              child: TextField(
+                controller:workSpaceController ,
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search),
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.clear),
+                      onPressed: () {
+                        /* Clear the search field */
+                        workSpaceController.clear();
+                      },
+                    ),
+                    hintText: 'Search...',
+                    border: InputBorder.none),
+              ),
+            ),
+          )),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20.0,right: 20.0,bottom: 20.0,top: 40.0),
+        padding: const EdgeInsets.all( 20.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // if(currentAddress!=null)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: IconButton(
-                        onPressed: (){},
-                        iconSize: 30.0,
-                        icon: Icon(
-                          Icons.menu_sharp,
-                          color: Colors.black,
-                        )
-                    ),
-                  ),
-                  SizedBox(
-                    width: 270.0,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: IconButton(
-                      iconSize: 30.0,
-                      onPressed:(){},
-                      icon: Icon(
-                        Icons.account_circle_outlined,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [
+              //     Container(
+              //       decoration: BoxDecoration(
+              //         color: Colors.white,
+              //         borderRadius: BorderRadius.circular(10.0),
+              //       ),
+              //       child: IconButton(
+              //           onPressed: (){},
+              //           iconSize: 30.0,
+              //           icon: Icon(
+              //             Icons.menu_sharp,
+              //             color: Colors.black,
+              //           )
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 270.0,
+              //     ),
+              //     Container(
+              //       decoration: BoxDecoration(
+              //         color: Colors.white,
+              //         borderRadius: BorderRadius.circular(10.0),
+              //       ),
+              //       child: IconButton(
+              //         iconSize: 30.0,
+              //         onPressed:(){},
+              //         icon: Icon(
+              //           Icons.account_circle_outlined,
+              //           color: Colors.black,
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 20.0,
+              // ),
               Text(
                 'Hello Hesham!',
                 style: TextStyle(
@@ -208,69 +157,61 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.grey[700],
                 ),
               ),
-              SizedBox(
-                height:30.0,
-              ),
-              Container(
-                margin: EdgeInsets.all(10.0),
-                height:50.0,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10), //border corner radius
-                  boxShadow:[
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.07), //color of shadow
-                      spreadRadius: 12, //spread radius
-                      blurRadius: 7, // blur radius
-                      offset: Offset(0, 2), // changes position of shadow
-                      //first parameter of offset is left-right
-                      //second parameter is top to down
-                    ),
-                    //you can set more BoxShadow() here
-                  ],
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: " Search For Workspace",
-                          hintStyle: TextStyle(
-                            color: Colors.black.withAlpha(120),
-                          ),
-                          border: InputBorder.none,
-                        ),
-                        onChanged: (String keyword) {},
-                      ),
-                    ),
-                    Icon(
-                      Icons.search,
-                      color: Colors.black.withAlpha(120),
-                    ),
-                    IconButton(
-                      onPressed: () async {
-                        // setState(() {
-                        //   isLoading = true;
-                        // });
-                        // currentPosition = await getPosition();
-                        // getAddress(currentPosition!.latitude,
-                        //     currentPosition!.longitude);
-                        // setState(() {
-                        //   isLoading = false;
-                        // });
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context)=> LocationScreen())
-                        );
-                      },
-                      icon: Icon(
-                        Icons.my_location,
-                        color: Colors.lightBlue,
-                      ),
-                    )
-                  ],
-                ),
-
-              ),
+              // SizedBox(
+              //   height:30.0,
+              // ),
+              // Container(
+              //   margin: EdgeInsets.all(10.0),
+              //   height:50.0,
+              //   decoration: BoxDecoration(
+              //     color: Colors.white,
+              //     borderRadius: BorderRadius.circular(10), //border corner radius
+              //     boxShadow:[
+              //       BoxShadow(
+              //         color: Colors.grey.withOpacity(0.07), //color of shadow
+              //         spreadRadius: 12, //spread radius
+              //         blurRadius: 7, // blur radius
+              //         offset: Offset(0, 2), // changes position of shadow
+              //         //first parameter of offset is left-right
+              //         //second parameter is top to down
+              //       ),
+              //       //you can set more BoxShadow() here
+              //     ],
+              //   ),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Expanded(
+              //         child: TextField(
+              //           decoration: InputDecoration(
+              //             hintText: " Search For Workspace",
+              //             hintStyle: TextStyle(
+              //               color: Colors.black.withAlpha(120),
+              //             ),
+              //             border: InputBorder.none,
+              //           ),
+              //           onChanged: (String keyword) {},
+              //         ),
+              //       ),
+              //       Icon(
+              //         Icons.search,
+              //         color: Colors.black.withAlpha(120),
+              //       ),
+              //       IconButton(
+              //         onPressed: () async {
+              //
+              //           Navigator.push(context,
+              //               MaterialPageRoute(builder: (context)=> LocationScreen())
+              //           );
+              //         },
+              //         icon: Icon(
+              //           Icons.my_location,
+              //           color: Colors.lightBlue,
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              //
+              // ),
               SizedBox(
                 height:30.0,
               ),
@@ -285,101 +226,12 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height:30.0,
               ),
-
               Container(
                 height: 240,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: names.length,
-                  itemBuilder: (context,index){
-                    return GestureDetector(
-                      onTap: (){
-                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> ()));
-                      },
-                      child: Column(
-                        children:[
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(0),
-                              color: Colors.grey.shade100,
-                            ),
-                            //height: 170,
-                            width: MediaQuery.of(context).size.width * .6,
-                            child: Column(
-                              children:[
-                                Stack(
-                                  children:[
-                                    ClipRRect(
-                                      child: Image.asset('assets/images/space2.jpg',),
-                                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top:15.0),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.lightBlue.withOpacity(1),
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10),
-                                            ),
-                                          ),
-                                          height: 42,
-                                          width: 110.0,
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "20LE/hour",
-                                              style: TextStyle(
-                                                fontSize: 20.0,
-                                                color:Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-
-
-                              ],
-                            ),
-
-
-
-                          ),
-
-                          SizedBox(height: 20,),
-
-                          CustomText(
-                            maxLine: 1,
-                            text: 'Elkhaima Workspace',
-                            fontSize: 20,
-                            fontweight: FontWeight.bold,
-                          ),
-
-                          SizedBox(height: 10,),
-
-                          CustomText(
-                            maxLine: 1,
-                            text: 'Dokki,Giza',
-                            alignment: Alignment.bottomLeft,
-                            color: Colors.grey,
-                            fontweight: FontWeight.bold,
-
-                          ),
-
-
-
-
-                          //SizedBox(height: 20,),
-                        ],
-                      ),
-                    );
-                  },
-
+                  itemBuilder: (context, index) => buildWorkspaceItem(workspaces[index]) ,
                   separatorBuilder: (context, index) =>SizedBox(
                     width: 20,
                   ),
@@ -387,8 +239,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 ),
               ),
-
-
               SizedBox(
                 height:30.0,
               ),
@@ -400,100 +250,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.grey[800],
                 ),
               ),
-
               SizedBox(
                 height:30.0,
               ),
-
               Container(
                 height: 240,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: names.length,
-                  itemBuilder: (context,index){
-                    return Column(
-                      children:[
-
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(0),
-                            color: Colors.grey.shade100,
-                          ),
-                          //height: 170,
-                          width: MediaQuery.of(context).size.width * .6,
-                          child: Column(
-                            children:[
-                              Stack(
-                                children:[
-                                  ClipRRect(
-                                   child: Image.asset('assets/images/space2.jpg',),
-                                   borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top:15.0),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.lightBlue.withOpacity(1),
-                                          borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(10),
-                                            bottomLeft: Radius.circular(10),
-                                          ),
-                                        ),
-                                        height: 42,
-                                        width: 110.0,
-                                        child: Align(
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            "20LE/hour",
-                                            style: TextStyle(
-                                              fontSize: 20.0,
-                                              color:Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                    ],
-                              ),
-
-
-                            ],
-                          ),
-
-
-
-                        ),
-
-                        SizedBox(height: 20,),
-
-                        CustomText(
-                          maxLine: 1,
-                          text: 'Elkhaima Workspace',
-                          fontSize: 20,
-                          fontweight: FontWeight.bold,
-                        ),
-
-                        SizedBox(height: 10,),
-
-                        CustomText(
-                          maxLine: 1,
-                          text: 'Dokki,Giza',
-                          alignment: Alignment.bottomLeft,
-                          color: Colors.grey,
-                          fontweight: FontWeight.bold,
-
-                        ),
-
-
-
-
-                        //SizedBox(height: 20,),
-                      ],
-                    );
-                  },
+                  itemBuilder:(context, index) => buildWorkspaceItem(workspaces[index]) ,
 
                   separatorBuilder: (context, index) =>SizedBox(
                     width: 20,
@@ -502,11 +267,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 ),
               ),
-
               SizedBox(
                 height:20.0,
               ),
-
               Text(
                 'Newest Workspaces',
                 style: TextStyle(
@@ -523,91 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: names.length,
-                  itemBuilder: (context,index){
-                    return Column(
-                      children:[
-
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(0),
-                            color: Colors.grey.shade100,
-                          ),
-                          //height: 170,
-                          width: MediaQuery.of(context).size.width * .6,
-                          child: Column(
-                            children:[
-                              Stack(
-                                children:[
-                                  ClipRRect(
-                                    child: Image.asset('assets/images/space2.jpg',),
-                                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top:15.0),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.lightBlue.withOpacity(1),
-                                          borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(10),
-                                            bottomLeft: Radius.circular(10),
-                                          ),
-                                        ),
-                                        height: 42,
-                                        width: 110.0,
-                                        child: Align(
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            "20LE/hour",
-                                            style: TextStyle(
-                                              fontSize: 20.0,
-                                              color:Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-
-
-                            ],
-                          ),
-
-
-
-                        ),
-
-                        SizedBox(height: 20,),
-
-                        CustomText(
-                          maxLine: 1,
-                          text: 'Elkhaima Workspace',
-                          fontSize: 20,
-                          fontweight: FontWeight.bold,
-                        ),
-
-                        SizedBox(height: 10,),
-
-                        CustomText(
-                          maxLine: 1,
-                          text: 'Dokki,Giza',
-                          alignment: Alignment.bottomLeft,
-                          color: Colors.grey,
-                          fontweight: FontWeight.bold,
-
-                        ),
-
-
-
-
-                        //SizedBox(height: 20,),
-                      ],
-                    );
-                  },
-
+                  itemBuilder: (context, index) => buildWorkspaceItem(workspaces[index]) ,
                   separatorBuilder: (context, index) =>SizedBox(
                     width: 20,
                   ),
@@ -787,69 +466,76 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   Widget buildWorkspaceItem(WorkSpaceModel workspace) => Row(
     children: [
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 210,
-            height: 190,
-            decoration: BoxDecoration(
-              image:DecorationImage(
-                image: AssetImage('${workspace.image}'),
-                fit: BoxFit.cover,
+      GestureDetector(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 210,
+              height: 180,
+              decoration: BoxDecoration(
+                image:DecorationImage(
+                  image: AssetImage('${workspace.image}'),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(20.0),
               ),
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(top:15.0),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.lightBlue.withOpacity(1),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
+              child: Padding(
+                padding: const EdgeInsets.only(top:15.0),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlue.withOpacity(1),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                      ),
                     ),
-                  ),
-                  height: 42,
-                  width: 110.0,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "20LE/hour",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color:Colors.white,
+                    height: 42,
+                    width: 110.0,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "20LE/hour",
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color:Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
 
-          SizedBox(
-            height:10.0,
-          ),
-          Text(
-            '${workspace.name}',
-            style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.grey[700],
+            SizedBox(
+              height:5.0,
             ),
-          ),
-          SizedBox(
-            height:10.0,
-          ),
-          Text(
-            '${workspace.location}',
-            style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.grey[500],
+            Text(
+              '${workspace.name}',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey[700],
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              height:5.0,
+            ),
+            Text(
+              '${workspace.location}',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey[500],
+              ),
+            ),
+          ],
+        ),
+        onTap: (){
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context)=> details_screen())
+          );
+        },
       ),
       // SizedBox(
       //   width:20,

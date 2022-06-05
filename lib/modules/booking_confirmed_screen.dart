@@ -20,12 +20,12 @@ class BookingConfirmationScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                height: 115.0,
+                height: 50.0,
               ),
               Text(
                 'Booking Number',
                 style:TextStyle(
-                  fontSize: 50.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),

@@ -60,46 +60,42 @@ class _roomDetailsState extends State<roomDetails> {
 
               Spacer(),
 
-              SizedBox(
-                height: 50.0,
-                width: 190.0,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.grey.shade200,
-                            width: 1,
-                            style: BorderStyle.solid
-                        ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Colors.grey.shade200,
+                          width: 1,
+                          style: BorderStyle.solid
+                      ),
 
-                        borderRadius: BorderRadius.circular(8)
+                      borderRadius: BorderRadius.circular(8)
 
 
-                    ),
-                    child: DropdownButton(
-                      value: dropdownvalue,
-                      // Down Arrow Icon
-                      icon: const Icon(Icons.keyboard_arrow_down),
-                      // Array list of items
-
-                      items: items.map((String items) {
-                        return DropdownMenuItem(
-                          value: items,
-                          child: Center(child: Text(items)),
-                        );
-                      }).toList(),
-                      // After selecting the desired option,it will
-                      // change button value to selected value
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownvalue = newValue!;
-                        });
-                      },
-                        underline: DropdownButtonHideUnderline(child: Container())
-                     ),
                   ),
+                  child: DropdownButton(
+                    value: dropdownvalue,
+                    // Down Arrow Icon
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    // Array list of items
+
+                    items: items.map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Center(child: Text(items)),
+                      );
+                    }).toList(),
+                    // After selecting the desired option,it will
+                    // change button value to selected value
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        dropdownvalue = newValue!;
+                      });
+                    },
+                      underline: DropdownButtonHideUnderline(child: Container())
+                   ),
                 ),
               ),
 
@@ -157,14 +153,16 @@ class _roomDetailsState extends State<roomDetails> {
                           style: TextStyle(color: Colors.black87, fontSize: 17.0, fontWeight: FontWeight.bold),
                         ),
 
-                        Spacer( ),
+                        // Spacer( ),
 
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10.0),
-                          child: IconButton(
-                            color: Colors.blue.shade500,
-                            icon: Icon(Icons.favorite_border),
-                            onPressed: () {},
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: IconButton(
+                              color: Colors.blue.shade500,
+                              icon: Icon(Icons.favorite_border),
+                              onPressed: () {},
+                            ),
                           ),
                         ),
 

@@ -52,11 +52,11 @@ class _LocationScreenState extends State<LocationScreen> {
           children: [
             ElevatedButton(
                 onPressed: _getUserLocation,
-                child: const Text('Check Location')),
+                child: const Text('Check Location')
+            ),
             const SizedBox(height: 25),
             // Display latitude & longtitude
-            _userLocation != null
-                ? Padding(
+            _userLocation != null ? Padding(
               padding: const EdgeInsets.all(8.0),
               child: Wrap(
                 children: [
@@ -65,8 +65,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   Text('Your longtitude: ${_userLocation?.longitude}')
                 ],
               ),
-            )
-                : Container()
+            ) : Container()
           ],
         ),
       ),
