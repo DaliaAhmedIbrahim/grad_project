@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
+import 'package:grad_project/Networking/Authentication/ResetPasssword.dart';
 import 'package:grad_project/modules/login_screen.dart';
 
 import '../shared/components/components.dart';
 
-class ResetPassword extends StatefulWidget
-{
+class ResetPassword extends StatefulWidget {
   @override
   State<ResetPassword> createState() => _ResetPassword();
 }
@@ -25,8 +25,7 @@ class _ResetPassword extends State<ResetPassword> {
   late String _code;
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -34,9 +33,9 @@ class _ResetPassword extends State<ResetPassword> {
         child: Center(
           child: SingleChildScrollView(
             child: Form(
-              key:formKey ,
+              key: formKey,
               child: Column(
-                crossAxisAlignment:CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Reset password',
@@ -48,6 +47,7 @@ class _ResetPassword extends State<ResetPassword> {
                   SizedBox(
                     height: 40.0,
                   ),
+
                   Text(
                     'Enter your verification code',
                     style: TextStyle(
@@ -110,25 +110,21 @@ class _ResetPassword extends State<ResetPassword> {
                       controller: passwordController,
                       label: 'New Password',
                       prefix: Icons.lock,
-                      suffix:isPassword ? Icons.visibility : Icons.visibility_off,
+                      suffix:
+                          isPassword ? Icons.visibility : Icons.visibility_off,
                       isPassword: isPassword,
-                      suffixPressed: (){
+                      suffixPressed: () {
                         setState(() {
-                          isPassword = ! isPassword ;
+                          isPassword = !isPassword;
                         });
-
                       },
-
                       type: TextInputType.visiblePassword,
-                      validate: (String value)
-                      {
-                        if (value.isEmpty)
-                        {
-                          return'password is too short';
+                      validate: (String value) {
+                        if (value.isEmpty) {
+                          return 'password is too short';
                         }
                         return null;
                       }
-
                   ),
                   SizedBox(
                     height: 20.0,
@@ -137,51 +133,45 @@ class _ResetPassword extends State<ResetPassword> {
                       controller: confirmPasswordController,
                       label: 'Confirm Password',
                       prefix: Icons.lock,
-                      suffix:isConfirmPassword ? Icons.visibility : Icons.visibility_off,
+                      suffix: isConfirmPassword
+                          ? Icons.visibility
+                          : Icons.visibility_off,
                       isPassword: isConfirmPassword,
-                      suffixPressed: (){
+                      suffixPressed: () {
                         setState(() {
-                          isConfirmPassword = ! isConfirmPassword ;
+                          isConfirmPassword = !isConfirmPassword;
                         });
-
                       },
-
                       type: TextInputType.visiblePassword,
-                      validate: (String value)
-                      {
-                        if (value.isEmpty)
-                        {
-                          return'password is too short';
+                      validate: (String value) {
+                        if (value.isEmpty) {
+                          return 'password is too short';
                         }
                         return null;
                       }
-
                   ),
                   SizedBox(
                     height: 30.0,
                   ),
                   defaultButton(
                     text: 'Submit',
-                    function: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
-                      if (formKey.currentState!.validate()){
-                        print(emailController.text);
-                        print(passwordController.text);
+                    function: () async {
+                      // save data or send data to the internet "API".
+                      if (formKey.currentState!.validate()) {
+                        await ApiReset.ResetPassword(passwordController.text,
+                            confirmPasswordController.text);
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                      } else {
+                        print('false');
                       }
                     },
                   ),
-
-
-
-
-
                 ],
               ),
             ),
           ),
         ),
       ),
-
     );
   }
 }

@@ -28,6 +28,8 @@ import 'package:grad_project/modules/user_location_screen.dart';
 import 'package:grad_project/modules/verfication_screen.dart';
 import 'package:grad_project/timerange.dart';
 
+import 'modules/sign_up.dart';
+
 void main() {
   runApp(MyApp());
 }

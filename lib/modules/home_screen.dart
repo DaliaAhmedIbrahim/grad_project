@@ -139,6 +139,46 @@ class _HomeScreenState extends State<HomeScreen> {
               // SizedBox(
               //   height: 20.0,
               // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: IconButton(
+                        onPressed: (){},
+                        iconSize: 30.0,
+                        icon: Icon(
+                          Icons.menu_sharp,
+                          color: Colors.black,
+                        )
+                    ),
+                  ),
+                  SizedBox(
+                    width: 270.0,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: IconButton(
+                      iconSize: 30.0,
+                      onPressed:(){},
+                      icon: Icon(
+                        Icons.account_circle_outlined,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
               Text(
                 'Hello Hesham!',
                 style: TextStyle(
