@@ -47,7 +47,6 @@ class _ResetPassword extends State<ResetPassword> {
                   SizedBox(
                     height: 40.0,
                   ),
-
                   Text(
                     'Enter your verification code',
                     style: TextStyle(
@@ -61,7 +60,7 @@ class _ResetPassword extends State<ResetPassword> {
                     children: [
                       VerificationCode(
                           textStyle: TextStyle(
-                              fontSize: 40.0,
+                              fontSize: 30.0,
                               color: Colors.lightBlue,
                           ),
                           keyboardType: TextInputType.number,
@@ -73,9 +72,6 @@ class _ResetPassword extends State<ResetPassword> {
                             setState(() {
                               _code = value;
                               print(_code);
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context)=> LoginScreen()));
-
                             });
                           },
                           onEditing: (bool value) {
