@@ -3,6 +3,7 @@ import 'package:grad_project/modules/booking_layout_screen.dart';
 import 'package:grad_project/modules/edit_password_screen.dart';
 import 'package:grad_project/modules/edit_personal_info_screen.dart';
 import 'package:grad_project/modules/payment_choose_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -217,6 +218,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         IconButton(
                           onPressed: () {  },
+                          icon: Icon(Icons.arrow_forward_ios_outlined),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.approval,
+                          size: 25.0,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Expanded(
+                          child: Text(
+                            'Become a Host',
+                            style: TextStyle(
+                              fontSize: 17.0,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                            onPressed: () => launch('https://docs.google.com/forms/d/e/1FAIpQLSeQUZhEutyikKyF-dWW6_6ksGqIFboJ22DHqyRBTeSo-PtEig/viewform?usp=sf_link'),
                           icon: Icon(Icons.arrow_forward_ios_outlined),
                         ),
                       ],

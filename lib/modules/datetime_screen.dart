@@ -92,8 +92,8 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
               activeBorderColor: Colors.blue,
               backgroundColor: Colors.transparent,
               activeBackgroundColor: Colors.blue,
-              firstTime: TimeOfDay(hour: 8, minute: 00),
-              lastTime: TimeOfDay(hour: 21, minute: 00),
+              firstTime: TimeOfDay(hour: 0, minute: 00 ),
+              lastTime: TimeOfDay(hour: 23, minute: 00),
               initialRange: _timeRange,
               timeStep: 60,
               timeBlock: 60,
@@ -111,15 +111,40 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 20.0),
                           child: Text(
-                            'Selected ',
+                            'Start Time ',
                             style: TextStyle(fontSize: 15, color: Colors.black,fontWeight: FontWeight.bold,),
                           ),
                         ),
                         SizedBox(width: 5.0,),
                         Text(
-                          '${_timeRange!.start.format(context)} - ${_timeRange!.end.format(context)} ' + ' : ' + '$selectedDate'.split(' ')[0],
+                          '$selectedDate'.split(' ')[0]+ '   ' +'${_timeRange!.start.format(context)}' ,
                           style: TextStyle(fontSize: 15, color: Colors.black),
                         ),
+                        // Text(
+                        //   '${_timeRange!.start.format(context)} - ${_timeRange!.end.format(context)} ' + ' : ' + '$selectedDate'.split(' ')[0],
+                        //   style: TextStyle(fontSize: 15, color: Colors.black),
+                        // ),
+                      ],
+                    ),
+                    SizedBox(height: 8.0,),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: Text(
+                            'End Time ',
+                            style: TextStyle(fontSize: 15, color: Colors.black,fontWeight: FontWeight.bold,),
+                          ),
+                        ),
+                        SizedBox(width: 5.0,),
+                        Text(
+                          '$selectedDate'.split(' ')[0]+ '     ' +'${_timeRange!.end.format(context)}' ,
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                        ),
+                        // Text(
+                        //   '${_timeRange!.start.format(context)} - ${_timeRange!.end.format(context)} ' + ' : ' + '$selectedDate'.split(' ')[0],
+                        //   style: TextStyle(fontSize: 15, color: Colors.black),
+                        // ),
                       ],
                     ),
                     SizedBox(height: 8.0,),
