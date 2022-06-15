@@ -63,8 +63,6 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
                   //print("New Date $newDate");
                 },
             ),
-
-
             TimeRange(
               fromTitle: Text(
                 'FROM',

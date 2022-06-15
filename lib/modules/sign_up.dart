@@ -104,40 +104,40 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: 15.0,
                   ),
-                  defaultFormField(
-                      controller: mobileController,
-                      label: "Mobile Number",
-                      prefix: Icons.phone,
-                      type: TextInputType.number,
-                      validate: (String value)
-                      {
-                        if (value.isEmpty)
-                        {
-                          return'mobile number must not be empty';
-                        }
-                        return null;
-                      }
-                  ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-
-                  defaultButton(
-                      function: ()
-                      {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context)=> verificationScreen()));
-
-                        if(formKey.currentState!.validate()){
-                          print(nameController.text);
-                          print(emailController.text);
-                          print(passwordController.text);
-                          print(mobileController.text);
-                          return null;
-                        }
-                      },
-                      text: 'Sign UP',
-                      ),
+                  // defaultFormField(
+                  //     controller: mobileController,
+                  //     label: "Mobile Number",
+                  //     prefix: Icons.phone,
+                  //     type: TextInputType.number,
+                  //     validate: (String value)
+                  //     {
+                  //       if (value.isEmpty)
+                  //       {
+                  //         return'mobile number must not be empty';
+                  //       }
+                  //       return null;
+                  //     }
+                  // ),
+                  // SizedBox(
+                  //   height: 30.0,
+                  // ),
+                  //
+                  // defaultButton(
+                  //     function: ()
+                  //     {
+                  //       Navigator.push(context,
+                  //           MaterialPageRoute(builder: (context)=> verificationScreen()));
+                  //
+                  //       if(formKey.currentState!.validate()){
+                  //         print(nameController.text);
+                  //         print(emailController.text);
+                  //         print(passwordController.text);
+                  //         print(mobileController.text);
+                  //         return null;
+                  //       }
+                  //     },
+                  //     text: 'Sign UP',
+                  //     ),
                     SizedBox(
                       height: 15.0,
                     ),

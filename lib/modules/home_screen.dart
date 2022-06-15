@@ -99,86 +99,6 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // if(currentAddress!=null)
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Container(
-              //       decoration: BoxDecoration(
-              //         color: Colors.white,
-              //         borderRadius: BorderRadius.circular(10.0),
-              //       ),
-              //       child: IconButton(
-              //           onPressed: (){},
-              //           iconSize: 30.0,
-              //           icon: Icon(
-              //             Icons.menu_sharp,
-              //             color: Colors.black,
-              //           )
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 270.0,
-              //     ),
-              //     Container(
-              //       decoration: BoxDecoration(
-              //         color: Colors.white,
-              //         borderRadius: BorderRadius.circular(10.0),
-              //       ),
-              //       child: IconButton(
-              //         iconSize: 30.0,
-              //         onPressed:(){},
-              //         icon: Icon(
-              //           Icons.account_circle_outlined,
-              //           color: Colors.black,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 20.0,
-              // ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: IconButton(
-                        onPressed: (){},
-                        iconSize: 30.0,
-                        icon: Icon(
-                          Icons.menu_sharp,
-                          color: Colors.black,
-                        )
-                    ),
-                  ),
-                  SizedBox(
-                    width: 270.0,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: IconButton(
-                      iconSize: 30.0,
-                      onPressed:(){},
-                      icon: Icon(
-                        Icons.account_circle_outlined,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
               Text(
                 'Hello Hesham!',
                 style: TextStyle(
@@ -337,105 +257,105 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height:30.0,
               ),
-              Text(
-                'Latest Reviews',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25.0,
-                  color: Colors.grey[800],
-                ),
-              ),
-              SizedBox(
-                height:30.0,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 220,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25.0),
-                      image:DecorationImage(
-                        image: AssetImage('assets/images/space2.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top:15.0),
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.lightBlue.withOpacity(1),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10),
-                            ),
-                          ),
-                          height: 42,
-                          width: 110.0,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "20LE/hour",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color:Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height:10.0,
-                  ),
-                  Text(
-                    'Ideaspace Workspace',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                  SizedBox(
-                    height:10.0,
-                  ),
-                  Text(
-                    'ElNozha,Cairo',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey[500],
-                    ),
-                  ),
-                  SizedBox(
-                    height:20.0,
-                  ),
-                  Text(
-                    'We Couldn\'t have found a more perfect place to stay '
-                        'in the ares - it\'s just perfect! The attention to detail not '
-                        'just in our room but the whole property is outstanding.',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey[500],
-                    ),
-                  ),
-                  SizedBox(
-                    height:20.0,
-                  ),
-                  defaultButton(
-                    function: ()
-                    {
-                      print('more reviews.');
-                    },
-                    text: 'More Reviews',
-                  ),
-                ],
-              ),
-              SizedBox(
-                height:70.0,
-              ),
+              // Text(
+              //   'Latest Reviews',
+              //   style: TextStyle(
+              //     fontWeight: FontWeight.bold,
+              //     fontSize: 25.0,
+              //     color: Colors.grey[800],
+              //   ),
+              // ),
+              // SizedBox(
+              //   height:30.0,
+              // ),
+              // Column(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     Container(
+              //       width: double.infinity,
+              //       height: 220,
+              //       decoration: BoxDecoration(
+              //         borderRadius: BorderRadius.circular(25.0),
+              //         image:DecorationImage(
+              //           image: AssetImage('assets/images/space2.jpg'),
+              //           fit: BoxFit.cover,
+              //         ),
+              //       ),
+              //       child: Padding(
+              //         padding: const EdgeInsets.only(top:15.0),
+              //         child: Align(
+              //           alignment: Alignment.topRight,
+              //           child: Container(
+              //             decoration: BoxDecoration(
+              //               color: Colors.lightBlue.withOpacity(1),
+              //               borderRadius: BorderRadius.only(
+              //                 topLeft: Radius.circular(10),
+              //                 bottomLeft: Radius.circular(10),
+              //               ),
+              //             ),
+              //             height: 42,
+              //             width: 110.0,
+              //             child: Align(
+              //               alignment: Alignment.center,
+              //               child: Text(
+              //                 "20LE/hour",
+              //                 style: TextStyle(
+              //                   fontSize: 20.0,
+              //                   color:Colors.white,
+              //                 ),
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       height:10.0,
+              //     ),
+              //     Text(
+              //       'Ideaspace Workspace',
+              //       style: TextStyle(
+              //         fontSize: 20.0,
+              //         color: Colors.grey[700],
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       height:10.0,
+              //     ),
+              //     Text(
+              //       'ElNozha,Cairo',
+              //       style: TextStyle(
+              //         fontSize: 20.0,
+              //         color: Colors.grey[500],
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       height:20.0,
+              //     ),
+              //     Text(
+              //       'We Couldn\'t have found a more perfect place to stay '
+              //           'in the ares - it\'s just perfect! The attention to detail not '
+              //           'just in our room but the whole property is outstanding.',
+              //       style: TextStyle(
+              //         fontSize: 20.0,
+              //         color: Colors.grey[500],
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       height:20.0,
+              //     ),
+              //     defaultButton(
+              //       function: ()
+              //       {
+              //         print('more reviews.');
+              //       },
+              //       text: 'More Reviews',
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height:40.0,
+              // ),
               Text(
                 'Continue?',
                 style: TextStyle(
@@ -445,7 +365,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height:40.0,
+                height:30.0,
               ),
               defaultButton(
                 function: ()
@@ -468,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height:250.0,
+                height:50.0,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -481,7 +401,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 30,
                   ),
                   defaultButton(
                     function: ()
@@ -496,7 +416,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               SizedBox(
-                height: 60,
+                height: 30,
               ),
             ],
           ),

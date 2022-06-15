@@ -12,7 +12,6 @@ class EditPersonalInfo extends StatefulWidget {
 
 class _EditPersonalInfoState extends State<EditPersonalInfo> {
   var emailController = TextEditingController();
-  var passwordController = TextEditingController();
   var nameController = TextEditingController();
   var locationController = TextEditingController();
   var mobileController = TextEditingController();
@@ -139,38 +138,6 @@ class _EditPersonalInfoState extends State<EditPersonalInfo> {
               SizedBox(
                 height: 15.0,
               ),
-
-              defaultFormField(
-                  controller: passwordController,
-                  labelText:'PassWord',
-                  label: '*********',
-                  prefix: Icons.lock,
-                  suffix:isPassword ? Icons.visibility : Icons.visibility_off,
-                  isPassword: isPassword,
-                  suffixPressed: (){
-                    setState(() {
-                      isPassword = ! isPassword ;
-                    });
-
-                  },
-
-                  type: TextInputType.visiblePassword,
-                  validate: (String value)
-                  {
-                    if (value.isEmpty)
-                    {
-                      return'password is too short';
-                    }
-                    return null;
-                  }
-
-              ),
-
-              SizedBox(
-                height: 15.0,
-              ),
-
-
               defaultFormField(
                   controller: mobileController,
                   labelText:"Mobile Number" ,
@@ -186,11 +153,9 @@ class _EditPersonalInfoState extends State<EditPersonalInfo> {
                     return null;
                   }
               ),
-
               SizedBox(
                 height: 15.0,
               ),
-
               defaultFormField(
                 controller: locationController,
                 validate: (String value)

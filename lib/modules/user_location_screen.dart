@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad_project/modules/nearest_workspaces_screen.dart';
 import 'package:location/location.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -38,7 +39,10 @@ class _LocationScreenState extends State<LocationScreen> {
     final _locationData = await location.getLocation();
     setState(() {
       _userLocation = _locationData;
-      print('${_userLocation?.latitude}, ${_userLocation?.longitude}');
+      print('Latitude: ${_userLocation?.latitude},Longtiude: ${_userLocation?.longitude}');
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context)=> NearestWorkspacesScreen())
+      );
     });
   }
 
@@ -52,20 +56,20 @@ class _LocationScreenState extends State<LocationScreen> {
           children: [
             ElevatedButton(
                 onPressed: _getUserLocation,
-                child: const Text('Check Location')
+                child: const Text('Get the Nearest Workspaces to you'),
             ),
-            const SizedBox(height: 25),
-            // Display latitude & longtitude
-            _userLocation != null ? Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Wrap(
-                children: [
-                  Text('Your latitude: ${_userLocation?.latitude}'),
-                  const SizedBox(width: 10),
-                  Text('Your longtitude: ${_userLocation?.longitude}')
-                ],
-              ),
-            ) : Container()
+            // const SizedBox(height: 25),
+            // // Display latitude & longtitude
+            // _userLocation != null ? Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: Wrap(
+            //     children: [
+            //       Text('Your latitude: ${_userLocation?.latitude}'),
+            //       const SizedBox(width: 10),
+            //       Text('Your longtitude: ${_userLocation?.longitude}')
+            //     ],
+            //   ),
+            // ) : Container()
           ],
         ),
       ),
